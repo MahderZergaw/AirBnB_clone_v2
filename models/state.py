@@ -4,11 +4,12 @@ import models
 import os
 import sqlalchemy
 from models.base_model import BaseModel
+from models.base_model import Base
 from sqlalchemy import Column, String
 from sqlalchemy.orm import relationship
 
 
-class State(BaseModel):
+class State(BaseModel, Base):
     """ State class """
     if os.getenv("HBNB_TYPE_STORAGE") == "db":
         _tablename_ = "states"
@@ -29,6 +30,6 @@ class State(BaseModel):
             city_values = models.storage.all("City").values()
             city_list = []
             for c in city_values:
-                if city.state_id == self.id:
+                if c.state_id == self.id:
                     city_list.append(c)
             return city_list
