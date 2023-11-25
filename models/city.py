@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 """ City Module for HBNB project """
 import models
-from models.base_model import BaseModel, Base
+from models.base_model import BaseModel
+from models.base_model import Base
 import sqlalchemy
 from sqlalchemy import Column, String
 import os
@@ -9,7 +10,7 @@ from sqlalchemy.orm import relationship
 from sqlalchemy import ForeignKey
 
 
-class City(BaseModel):
+class City(BaseModel, Base):
     """ The city class, contains state ID and name """
     if os.getenv("HBNB_TYPE_STORAGE") == "db":
         _tablename_ = "cities"
