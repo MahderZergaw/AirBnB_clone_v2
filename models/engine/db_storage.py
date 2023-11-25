@@ -12,12 +12,13 @@ from models.user import User
 from sqlalchemy.orm import sessionmaker, scoped_session
 from sqlalchemy import create_engine
 
-class_name = {"Amenity": Amenity,
-              "City": City,
-              "Place": Place,
-              "State": State,
-              "Review": Review,
-              "User": User}
+class_name = { "Amenity": Amenity,
+               "City": City,
+               "Place": Place,
+               "State": State,
+               "Review": Review,
+               "User": User
+}
 
 
 class DBStorage:
@@ -81,8 +82,7 @@ class DBStorage:
 
     def get(self, cls, id):
         """retrieves object"""
-        if cls is not None and id is not None and type(cls) is str
-        and type(id) is str and cls in class_name:
+        if cls is not None and type(cls) is str and id is not None and type(id) is str and cls in class_name:
             cls = class_name[cls]
             objs = self.__session.query(cls).filter(cls.id
                                                     == id).first()
