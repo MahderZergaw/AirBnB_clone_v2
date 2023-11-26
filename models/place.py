@@ -61,7 +61,7 @@ class Place(BaseModel, Base):
         @property
         def amenities(self):
             """getter method for amenities"""
-            from models storage
+            from models import storage
             from models.amenity import Amenity
             amnty_list = []
             all_amenities = storage.all(Amenity)
