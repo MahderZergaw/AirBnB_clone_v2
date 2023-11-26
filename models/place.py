@@ -71,7 +71,7 @@ class Place(BaseModel, Base):
                     amnty_list.append(value)
             return amnty_list
 
-        @setter
+        @amenities.setter
         def amenities(self, value):
             """setter method for amenities"""
             from models import storage
