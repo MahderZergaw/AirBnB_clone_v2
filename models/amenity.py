@@ -9,7 +9,7 @@ from sqlalchemy.orm import relationship
 
 class Amenity(BaseModel, Base):
     """amenities class for places"""
-    _tablename_ = "amenities"
+    __tablename__ = "amenities"
     if os.getenv("HBNB_TYPE_STORAGE") == "db":
         name = Column(String(128), nullable=False)
         place_amenities = relationship("Place",
