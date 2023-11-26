@@ -12,7 +12,7 @@ from sqlalchemy.orm import relationship
 class State(BaseModel, Base):
     """ State class """
     if os.getenv("HBNB_TYPE_STORAGE") == "db":
-        _tablename_ = "states"
+        __tablename__ = "states"
         name = Column(String(128), nullable=False)
         cities = relationship("City", backref="states",
                               cascade="all, delete")
