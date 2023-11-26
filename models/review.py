@@ -8,6 +8,7 @@ from sqlalchemy.orm import relationship
 
 class Review(BaseModel, Base):
     """ Review classto store review information """
+    __tablename__ = "review"
     if os.getenv("HBNB_TYPE_STORAGE") == "db":
         place_id = Column(String(60), ForeignKey("places.id"),
                           nullable=False)
