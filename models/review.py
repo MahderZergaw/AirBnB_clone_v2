@@ -5,10 +5,12 @@ import os
 from sqlalchemy import Column, Integer, String, ForeignKey
 from sqlalchemy.orm import relationship
 
+STORAGE = os.getenv("HBNB_TYPE_STORAGE")
+
 
 class Review(BaseModel, Base):
     """ Review classto store review information """
-    if os.getenv("HBNB_TYPE_STORAGE") == "db":
+    if STORAGE == "db":
         place_id = Column(String(60), ForeignKey("places.id"),
                           nullable=False)
         user_id = Column(String(60), ForeignKey("users.id"),
